@@ -1,3 +1,14 @@
+Nombres  Apellidos  Edad
+Abner    Saavedra    33 
+
+Lino    Benavides    20 
+
+Ana     Mendoza      18 
+Abner    Saavedra    33 
+
+Lino    Benavides    20 
+
+Ana     Mendoza      18 
 Abner    Saavedra    33 
 
 Lino    Benavides    20 
