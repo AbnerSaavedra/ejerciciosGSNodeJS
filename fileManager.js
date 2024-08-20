@@ -6,6 +6,7 @@ const dfile = require("./archivosNodeJS/deleteFile")
 const rfile = require("./archivosNodeJS/renameFile")
 const cfile = require("./archivosNodeJS/copyFile")
 const cDir = require("./archivosNodeJS/createDir")
+const rDir = require("./archivosNodeJS/removeDir")
 
 /*rfile.readThisFile("./files/participantes.txt")
 
@@ -18,6 +19,8 @@ ofile.openFile("./files/fileToOpen.txt", "Hola mundo 7")*/
 //dfile.deleteFile("./files/fileToRename2-1.txt")
 
 cDir.createDirectory("./files/img")
+
+rDir.deleteDirectory("./files/img")
 
 cfile.copyAFile("./files/participantes.txt", "./files/participantes1.txt")
 
