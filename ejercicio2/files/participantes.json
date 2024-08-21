@@ -13,9 +13,15 @@
             "direccion": "Barquisimeto"
         },
         {
-            "nombre": "Abner",
+            "nombre": "Daniel",
             "sexo": "M",
-            "edad": 33,
+            "edad": 20,
+            "direccion": "Barquisimeto"
+        },
+        {
+            "nombre": "Paula",
+            "sexo": "F",
+            "edad": 18,
             "direccion": "Barquisimeto"
         }
     ]

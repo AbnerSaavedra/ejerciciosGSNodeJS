@@ -21,28 +21,43 @@ async function leerArchivo () {
     }
 }
 
-async function filtrarInfo() {
+async function contarInfoSexo() {
     try {
         await leerArchivo()
-        const filtro = data.filter(e => e.sexo == 'M')
+        const filtro = data.filter(e => e.sexo == 'M').length
 
-        console.log(filtro);
+        console.log("Contar por sexo: ", filtro);
     } catch (error) {
         console.error('¡Oh no! D:')
     }
 }
 
-async function contarP() {
+async function filtrarNombresP() {
     try {
         await leerArchivo()
-        const cantidad = data.filter(e => e.sexo == 'M').length
-        console.log(cantidad);
+        const cantidad = data.filter(e => e.nombre[0] == 'P')
+        console.log("Cantidad por P: ",cantidad);
     } catch (error) {
         console.log(error);
     }
 }
 
-leerArchivo()
-filtrarInfo()
-contarP()
+async function ordenarPorSexYEdad() {
+    try {
+        await leerArchivo()
+        const participantes = data
+        var mujeres = participantes.filter(e => e.sexo == 'F')
+        var hombres = participantes.filter(e => e.sexo == 'M')
+        var hombresOrder = hombres.sort( (a, b) => a.edad + b.edad )
+        var mujeresOrder = mujeres.sort( (a, b) => a.edad + b.edad )
+        hombresOrder = hombresOrder.concat(mujeresOrder)
+        console.log("Participantes ordenados: ", hombresOrder)
+    } catch (error) {
+        console.log(error);
+    }
+}
 
+/*leerArchivo()
+filtrarNombresP()
+contarInfoSexo()*/
+ordenarPorSexYEdad()
