@@ -7,6 +7,10 @@ fs.readFile('./files/participantes.json', 'utf8', function (err, data) {
 });*/
 
 var fs = require('fs');
-var obj = JSON.parse(fs.readFileSync('./files/participantes.json', 'utf8'));
+var arr = JSON.parse(fs.readFileSync('./files/participantes.json', 'utf8'));
 
-console.log("Objeto: ", obj)
+console.log("Objeto: ", arr.datos)
+
+arr.datos.forEach(element => {
+  console.log("Element: ", element)
+});
