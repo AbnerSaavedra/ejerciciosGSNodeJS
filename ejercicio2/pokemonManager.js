@@ -1,6 +1,7 @@
 const file = require("./moduloFS")
 
 let data = []
+let arrayContador = []
 
 async function leerArchivoJSON(){
 
@@ -55,22 +56,26 @@ async function contarPorTipo() {
         console.log(tiposUnicos)
 
         let contador = 0;
-        let arrayContador = []
-        for (let i = 0; i < data.length; i++) {
-            console.log("Data types: ",data[i]['types'])
-            for (let j = 0; j < tiposUnicos.length; j++) {
-                if (data[i]['types'].includes(tiposUnicos[j])) 
-                    contador++;
+
+        for(type of tiposUnicos){
+            contador = data.filter(p => p['type'].includes(type)).length
+            arrayContador.push({"tipo": type, "cantidad": contador})
         }
-        arrayContador.push(contador)
         console.log("arrayContador: ", arrayContador)
-    }
     } catch (error) {
         
     }
 }
 
+async function ordenarPokemonMayorAMenor() {
+    await contarPorTipo()
+
+    let arrayOrdenado = arrayContador.sort((a, b) => a.cantidad - b.cantidad)
+    console.log("Array ordenado: ", arrayOrdenado)
+}
+
 //leerArchivoJSON()
 //filtrarInfo()
 //filtrarNombresP()
-contarPorTipo()
+//contarPorTipo()
+ordenarPokemonMayorAMenor()
