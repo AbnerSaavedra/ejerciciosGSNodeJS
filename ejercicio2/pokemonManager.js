@@ -71,7 +71,7 @@ async function ordenarPokemonMayorAMenor() {
     await contarPorTipo()
 
     let arrayOrdenado = arrayContador.sort((a, b) => a.cantidad - b.cantidad)
-    console.log("Array ordenado: ", arrayOrdenado)
+    console.log("Array ordenado: ", arrayOrdenado.reverse())
 }
 
 //leerArchivoJSON()
