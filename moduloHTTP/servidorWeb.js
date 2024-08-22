@@ -7,6 +7,6 @@ const servidor = http.createServer((pedido, respuesta) => {
     respuesta.end()
 })
 
-servidor.listen(8888)
+servidor.listen(3000)
 
 console.log('Servidor web iniciado')

@@ -2,7 +2,7 @@ const http = require('http')
 
 const servidor = http.createServer((req, res) => {
     res.writeHead(200, {'Content-Type': "text/html"})
-    res.write(` <!DOCTYPE html>
+    res.write(`<!DOCTYPE html>
                     <html lang="en">
                     <head>
                         <meta charset="UTF-8">
