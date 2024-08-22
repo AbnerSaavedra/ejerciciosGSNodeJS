@@ -1,0 +1,28 @@
+{
+    "datos":[
+        {
+            "nombre": "Abner",
+            "sexo": "M",
+            "edad": 33,
+            "direccion": "Barquisimeto"
+        },
+        {
+            "nombre": "Natalia",
+            "sexo": "F",
+            "edad": 33,
+            "direccion": "Barquisimeto"
+        },
+        {
+            "nombre": "Daniel",
+            "sexo": "M",
+            "edad": 20,
+            "direccion": "Barquisimeto"
+        },
+        {
+            "nombre": "Paula",
+            "sexo": "F",
+            "edad": 18,
+            "direccion": "Barquisimeto"
+        }
+    ]
+}
