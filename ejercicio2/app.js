@@ -35,7 +35,7 @@ async function contarInfoSexo() {
 async function filtrarNombresP() {
     try {
         await leerArchivo()
-        const cantidad = data.filter(e => e.nombre[0] == 'P')
+        const cantidad = data.filter(e => e.nombre[0] == 'p')
         console.log("Cantidad por P: ",cantidad);
     } catch (error) {
         console.log(error);
