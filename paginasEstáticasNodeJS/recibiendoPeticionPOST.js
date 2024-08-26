@@ -5,7 +5,7 @@ const url = require('url')
 const server = http.createServer((req, res) => {
 
     if (req.method === 'GET' && (req.url === '/' || req.url === '/index.html')) {
-        fs.readFile('rutaForm.html', (err, data)=>{
+        fs.readFile('./paginasEstáticasNodeJS/rutaForm.html', (err, data)=>{
             if(err){
                 console.log("Error: ", err)
                 res.writeHead(404, { "Content-Type": 'text/html' })

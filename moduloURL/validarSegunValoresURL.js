@@ -1,10 +1,12 @@
 const http = require("http");
-const url = require("url");const PORT = 9000;
+const url = require("url");
+const PORT = 9000;
 
 const server = http.createServer(function (request, response) {
 
     const header = { "Content-Type": "application/json" };
     const parsed = url.parse(request.url, true);
+    console.log("URL parsed: ", parsed)
     const { pathname, query } = parsed; 
     const message = query?.message;
 

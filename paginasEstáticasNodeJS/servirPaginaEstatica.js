@@ -4,7 +4,7 @@ const fs = require('fs')
 const servidor = http.createServer((req, res)=>{
 
     if(req.url === '/' || req.url === '/index.html'){
-        fs.readFile('index.html', (err, data)=>{
+        fs.readFile('./paginasEstáticasNodeJS/index.html', (err, data)=>{
             if(err){
                 console.log("Error: ", err)
                 res.writeHead(404, { "Content-Type": 'text/html' })

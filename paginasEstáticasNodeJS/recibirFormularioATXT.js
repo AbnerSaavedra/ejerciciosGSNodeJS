@@ -39,7 +39,7 @@ const server = http.createServer((req, res) => {
             const curso = parsedData.get('curso');
             // Guardar en un archivo de texto
             const textoAGuardar = `Nombre: ${nombre}, Edad: ${edad}, Curso: ${curso}\n`;
-            fs.appendFile('estudiantes.txt', textoAGuardar, err => {
+            fs.appendFile('./paginasEstáticasNodeJS/estudiantes.txt', textoAGuardar, err => {
                 if (err) {
                     res.writeHead(500, { 'Content-Type': 'text/plain' });
                     res.end('Error al guardar la información.');

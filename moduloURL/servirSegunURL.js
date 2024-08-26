@@ -1,22 +1,20 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const url = require('url')
 
 const port = 3000;
 
-
-
 const server = http.createServer((req, res) => {
-  if (req.url === '/') {
+  const urlParsed = url.parse(req.url, true)
+  if (urlParsed.pathname === '/') {
     res.setHeader('Content-Type', 'text/html');
-    res.write(
-  
-      `<!DOCTYPE html>
-      <html>
-      <head>
+    res.write(`<!DOCTYPE html>
+          <html>
+          <head>
           <title>¡Bienvenido al Servidor Web!</title>
           <meta charset="UTF-8">
-          <link rel="stylesheet" href="http://localhost:3000/estilos.css">
+          <link rel="stylesheet" href="http://localhost:3000/css/estilos.css">
       </head>
       <body>
           <header style="background-color: #333; color: white; text-align: center; padding: 20px;">
@@ -27,14 +25,13 @@ const server = http.createServer((req, res) => {
           </div>
       </body>
       <script>
-        alert('mensaje')
+        alert('mensaje ${urlParsed.pathname}')
       </script>
       </html>`
-  
     );
     res.end();
-  } else if (req.url === '/estilos.css') {
-      const cssPath = path.join(__dirname, 'estilos.css');
+  } else if (req.url === '/css/estilos.css') {
+      const cssPath = path.join(__dirname, '/css/estilos.css');
 
       fs.readFile(cssPath, 'utf8', (err, cssContent) => {
           if (err) {
@@ -47,7 +44,21 @@ const server = http.createServer((req, res) => {
               res.end(cssContent);
           }
       });
-  } else {
+  } else if (req.url === '/scripts.js') {
+    const jsPath = path.join(__dirname, 'scripts.js');
+
+    fs.readFile(jsPath, 'utf8', (err, jsContent) => {
+        if (err) {
+            res.writeHead(500);
+            res.end('Error loading JS file.');
+        } else {
+            res.writeHead(200, {
+                'Content-Type': 'text/js',
+            });
+            res.end(jsContent);
+        }
+    });
+}  else {
       // Handle other routes or 404
       res.writeHead(404);
       res.end('Page not found.');
