@@ -1,10 +1,11 @@
 const http = require('http');
 const fs = require('fs');
-const url = require('url')
+const url = require('url');
 
 const server = http.createServer((req, res) => {
+    const urlParsed = url.parse(req.url, true)
 
-    if (req.method === 'GET' && (req.url === '/' || req.url === '/index.html')) {
+    if (req.method === 'GET' && (urlParsed.pathname === '/' || urlParsed.pathname === '/index.html')) {
         fs.readFile('./paginasEstáticasNodeJS/rutaForm.html', (err, data)=>{
             if(err){
                 console.log("Error: ", err)
@@ -16,7 +17,7 @@ const server = http.createServer((req, res) => {
             }
       });
     }
-    else if(req.method === 'POST' && req.url === '/ruta') {
+    else if(req.method === 'POST' && urlParsed.pathname === '/ruta') {
     let data = '';
         req.on('data', (chunk) => { data += chunk; });
         req.on('end', () => {
