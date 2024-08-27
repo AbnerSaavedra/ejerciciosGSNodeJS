@@ -11,6 +11,6 @@ app.get('/', (req, res) => {
         </html>`)
 })
 
-const server = app.listen(8888, ()=>{
+app.listen(8888, ()=>{
     console.log('Servidor iniciado')
 })
