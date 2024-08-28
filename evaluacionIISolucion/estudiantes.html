@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Estudiantes</title>
+    
+</head>
+<body>
+    <ul id="listaEstudiantes">
+
+    </ul>
+    <script>
+        fetch('/consultarEstudiantes')
+            .then(response => response.json())
+            .then(data => {
+                console.log("Data: ", data)
+                let estudiante = `<li>Nombre: ${data.nombre} Edad: ${data.edad} Curso: ${data.curso}<a href="/estudiante/${data.nombre}">Modificar</a></li>`
+                document.getElementById('listaEstudiantes').innerHTML = estudiante;
+            });
+    </script>
+</body>
+</html>

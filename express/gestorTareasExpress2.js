@@ -48,10 +48,10 @@ app.put('/tareas/:id', (req, res)=> {
     const tarea = tareas.find((t) => t.id == req.params.id);
 
     if(tarea){
-        const { title, descripcion, estatus } = req.body
+        const { title, description, status } = req.body
         tarea.title = title;
-        tarea.descripcion = descripcion;
-        tarea.estatus = estatus;
+        tarea.description = description;
+        tarea.status = status;
         res.status(200).json({message: 'Tarea Actualizada exitosamente'})
     }
     else{

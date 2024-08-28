@@ -1,0 +1,4 @@
+Nombre: sada, Edad: 21, Curso: sdads
+Nombre: Abner, Edad: 33, Curso: sadsa
+Nombre: sasda, Edad: 12, Curso: sada
+Nombre: Jesus, Edad: 12, Curso: 342432
