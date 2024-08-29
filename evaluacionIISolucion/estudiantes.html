@@ -14,9 +14,15 @@
         fetch('/consultarEstudiantes')
             .then(response => response.json())
             .then(data => {
-                console.log("Data: ", data)
-                let estudiante = `<li>Nombre: ${data.nombre} Edad: ${data.edad} Curso: ${data.curso}<a href="/estudiante/${data.nombre}">Modificar</a></li>`
-                document.getElementById('listaEstudiantes').innerHTML = estudiante;
+                console.log("Data: ", data.data.length)
+                let estudiantes = ``
+                for(let i = 0; i < data.data.length; i++){
+                    console.log("I: ", i)
+                    let estudiante = `<li>Nombre: ${data.data[i]['nombre']} Edad: ${data.data[i]['edad']} Curso: ${data.data[i]['curso']} 
+                                            <a href="/estudiante/?id=${i+1}">Modificar</a></li>`
+                    estudiantes += estudiante
+                }
+                document.getElementById('listaEstudiantes').innerHTML = estudiantes;
             });
     </script>
 </body>
