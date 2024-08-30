@@ -15,7 +15,7 @@ var tareas = [
 ]
 
 function validarRegistroTarea(req, res, next){
-    if(req.body.title != ""){
+    if(req.body.title != "" || !req.body.title){
         next()
     }else{
         res.status(403).send('La tarea debe tener un título')
