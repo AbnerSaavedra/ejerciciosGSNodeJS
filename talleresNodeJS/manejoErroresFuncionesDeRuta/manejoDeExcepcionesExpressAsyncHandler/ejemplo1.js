@@ -6,7 +6,7 @@ const asyncHandler = require('express-async-handler')
 
 router.get("/students", asyncHandler( async (req, res, next) =>{
 
-    const successfulResult = await fs.readFileSync(path.join(__dirname, 'estudiantes.json'))
+    const successfulResult = await fs.readFileSync(path.join(__dirname, '/files/students.json'))
     res.writeHead(200, {'Content-Type': 'text/json'});
     res.end(successfulResult);
     })
